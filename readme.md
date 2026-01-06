@@ -38,9 +38,8 @@
 
 | Script                 | Purpose                                 | JetPack Support             | Installation Method             | Estimated Time | Memory Required |
 | ---------------------- | --------------------------------------- | --------------------------- | ------------------------------- | -------------- | --------------- |
-| `install_pytorch.sh` | PyTorch with CUDA support + Torchvision | 5.1.1, 5.1.2, 6.0, 6.1, 6.2 | Pre-built wheels + Source build | 25-50 min      | 2-4 GB RAM      |
-| `build_opencv.sh`    | OpenCV with CUDA/cuDNN/GStreamer        | All versions                | Source compilation              | 2-4 hours      | 4-8 GB RAM      |
-| *Future scripts*     | *Additional ML libraries*             | *TBD*                     | *TBD*                         | *TBD*          | *TBD*           |
+| `install_pytorch.sh`   | PyTorch with CUDA support + Torchvision | 5.1.1, 5.1.2, 6.0, 6.1, 6.2 | Pre-built wheels + Source build | 25-50 min      | 2-4 GB RAM      |
+| `build_opencv.sh`      | OpenCV with CUDA/cuDNN/GStreamer        | All versions                | Source compilation              | 2-4 hours      | 4-8 GB RAM      |
 
 ### Script Comparison
 
