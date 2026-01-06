@@ -31,42 +31,42 @@
 
 ## 👤 Author
 
-**Vahid Behtaji**  
+**Vahid Behtaji**
 📧 Email: [vahidbehtaji2013@gmail.com](mailto:vahidbehtaji2013@gmail.com)
 
 ## 🛠 Available Scripts
 
-| Script                 | Purpose                                 | JetPack Support             | Installation Method             | Estimated Time | Memory Required |
-| ---------------------- | --------------------------------------- | --------------------------- | ------------------------------- | -------------- | --------------- |
-| `install_pytorch.sh`   | PyTorch with CUDA support + Torchvision | 5.1.1, 5.1.2, 6.0, 6.1, 6.2 | Pre-built wheels + Source build | 25-50 min      | 2-4 GB RAM      |
-| `build_opencv.sh`      | OpenCV with CUDA/cuDNN/GStreamer        | All versions                | Source compilation              | 2-4 hours      | 4-8 GB RAM      |
-| `test_pytorch.sh`      | Verify PyTorch & Torchvision installation | All versions                | Test script (no installation)   | < 1 min        | Minimal         |
+| Script                 | Purpose                                   | JetPack Support             | Installation Method             | Estimated Time | Memory Required |
+| ---------------------- | ----------------------------------------- | --------------------------- | ------------------------------- | -------------- | --------------- |
+| `install_pytorch.sh` | PyTorch with CUDA support + Torchvision   | 5.1.1, 5.1.2, 6.0, 6.1, 6.2 | Pre-built wheels + Source build | 25-50 min      | 2-4 GB RAM      |
+| `build_opencv.sh`    | OpenCV with CUDA/cuDNN/GStreamer          | All versions                | Source compilation              | 2-4 hours      | 4-8 GB RAM      |
+| `test_pytorch.sh`    | Verify PyTorch & Torchvision installation | All versions                | Test script (no installation)   | < 1 min        | Minimal         |
 
 ### Script Comparison
 
-| Feature | `install_pytorch.sh` | `build_opencv.sh` |
-|---------|---------------------|-------------------|
-| **Complexity** | ⭐ Low | ⭐⭐⭐ High |
-| **User Interaction** | ✅ Interactive | ⚠️ Minimal |
-| **Automatic Detection** | ✅ Yes | ❌ No |
-| **Memory Management** | ✅ Yes | ⚠️ Manual |
-| **CUDA Support** | ✅ Automatic | ✅ Automatic |
-| **Recommended For** | All users | Advanced users |
+| Feature                       | `install_pytorch.sh` | `build_opencv.sh` |
+| ----------------------------- | ---------------------- | ------------------- |
+| **Complexity**          | ⭐ Low                 | ⭐⭐⭐ High         |
+| **User Interaction**    | ✅ Interactive         | ⚠️ Minimal        |
+| **Automatic Detection** | ✅ Yes                 | ❌ No               |
+| **Memory Management**   | ✅ Yes                 | ⚠️ Manual         |
+| **CUDA Support**        | ✅ Automatic           | ✅ Automatic        |
+| **Recommended For**     | All users              | Advanced users      |
 
 ## 🚀 Quick Start
 
 ### Step-by-Step Installation Guide
 
-| Step | Action | Command | Expected Time | Notes |
-|------|--------|---------|---------------|-------|
-| **1** | **Navigate to Package Directory** | `cd /path/to/jetson-pytorch-opencv-installer` | - | Ensure you're in the correct directory |
-| **2** | **Make Scripts Executable** | `chmod +x *.sh` | < 1 min | Required for script execution (includes test_pytorch.sh) |
-| **3** | **Verify System Requirements** | `apt list --installed \| grep nvidia-jetpack` | < 1 min | Check JetPack version |
-| **4** | **Run PyTorch Installer** | `./install_pytorch.sh` | 5-10 min | Interactive installation |
-| **5** | **Follow Interactive Prompts** | See prompts below | - | Enter JetPack code, confirm wheel URL |
-| **6** | **Install Torchvision (Optional)** | Answer `y` when prompted | 20-40 min | Required for ultralytics |
-| **7** | **Verify Installation** | `./test_pytorch.sh` | < 1 min | Comprehensive test script |
-| **8** | **Build OpenCV (Optional)** | `./build_opencv.sh` | 2-4 hours | Only if needed for your project |
+| Step        | Action                                   | Command                                         | Expected Time | Notes                                                    |
+| ----------- | ---------------------------------------- | ----------------------------------------------- | ------------- | -------------------------------------------------------- |
+| **1** | **Navigate to Package Directory**  | `cd /path/to/jetson-pytorch-opencv-installer` | -             | Ensure you're in the correct directory                   |
+| **2** | **Make Scripts Executable**        | `chmod +x *.sh`                               | < 1 min       | Required for script execution (includes test_pytorch.sh) |
+| **3** | **Verify System Requirements**     | `apt list --installed \| grep nvidia-jetpack`  | < 1 min       | Check JetPack version                                    |
+| **4** | **Run PyTorch Installer**          | `./install_pytorch.sh`                        | 5-10 min      | Interactive installation                                 |
+| **5** | **Follow Interactive Prompts**     | See prompts below                               | -             | Enter JetPack code, confirm wheel URL                    |
+| **6** | **Install Torchvision (Optional)** | Answer `y` when prompted                      | 20-40 min     | Required for ultralytics                                 |
+| **7** | **Verify Installation**            | `./test_pytorch.sh`                           | < 1 min       | Comprehensive test script                                |
+| **8** | **Build OpenCV (Optional)**        | `./build_opencv.sh`                           | 2-4 hours     | Only if needed for your project                          |
 
 ### Detailed Installation Steps
 
@@ -92,14 +92,14 @@ apt list --installed | grep nvidia-jetpack
 
 **During Installation, You Will Be Prompted:**
 
-| Prompt | Your Action | Example |
-|--------|-------------|---------|
-| **JetPack Detection** | Script automatically detects | `Detected JetPack version: 6.2.1` |
-| **Suggested Code** | Review the suggestion | `Suggested JetPack code: 62` |
-| **Enter JetPack Code** | Enter code or press Enter | `62` (or press Enter to use suggested) |
-| **Wheel URL** | Press Enter for default | Press Enter |
-| **Install Torchvision?** | Type `y` for yes, `n` for no | `y` |
-| **Create Swap?** | Type `y` if memory is low | `y` (if prompted) |
+| Prompt                         | Your Action                      | Example                                  |
+| ------------------------------ | -------------------------------- | ---------------------------------------- |
+| **JetPack Detection**    | Script automatically detects     | `Detected JetPack version: 6.2.1`      |
+| **Suggested Code**       | Review the suggestion            | `Suggested JetPack code: 62`           |
+| **Enter JetPack Code**   | Enter code or press Enter        | `62` (or press Enter to use suggested) |
+| **Wheel URL**            | Press Enter for default          | Press Enter                              |
+| **Install Torchvision?** | Type `y` for yes, `n` for no | `y`                                    |
+| **Create Swap?**         | Type `y` if memory is low      | `y` (if prompted)                      |
 
 #### Step 3: Verification
 
@@ -130,6 +130,7 @@ python3 -c "import torchvision; print(f'TorchVision: {torchvision.__version__}')
 Interactive installer for PyTorch with CUDA support on Jetson devices.
 
 #### Features
+
 - **Automatic JetPack Detection**: Automatically detects your JetPack version and suggests the appropriate code
 - **Smart Code Suggestion**: Displays detected JetPack version and suggests the correct code (e.g., 6.2.1 → 62)
 - **Smart Wheel Selection**: Provides tested default wheel URLs with override options
@@ -140,6 +141,7 @@ Interactive installer for PyTorch with CUDA support on Jetson devices.
 - **OOM Prevention**: Uses single-threaded compilation (MAX_JOBS=1) to prevent out-of-memory errors
 
 #### Usage
+
 ```bash
 ./install_pytorch.sh
 ```
@@ -148,15 +150,15 @@ Interactive installer for PyTorch with CUDA support on Jetson devices.
 
 The script follows this interactive flow:
 
-| Step | Prompt | User Input | Default/Action |
-|------|--------|------------|----------------|
-| **1** | `Detecting JetPack version...` | Automatic | Script detects version |
-| **2** | `Detected JetPack version: X.X.X` | Display only | Shows detected version |
-| **3** | `Suggested JetPack code: XX` | Display only | Shows suggested code |
+| Step        | Prompt                                  | User Input                | Default/Action          |
+| ----------- | --------------------------------------- | ------------------------- | ----------------------- |
+| **1** | `Detecting JetPack version...`        | Automatic                 | Script detects version  |
+| **2** | `Detected JetPack version: X.X.X`     | Display only              | Shows detected version  |
+| **3** | `Suggested JetPack code: XX`          | Display only              | Shows suggested code    |
 | **4** | `Enter JetPack code [suggested: XX]:` | Enter code or press Enter | Uses suggested if Enter |
-| **5** | `Wheel URL [default: ...]:` | Press Enter or custom URL | Uses default if Enter |
-| **6** | `Install torchvision? [y/N]:` | `y` or `n` | `n` (skip) |
-| **7** | `Create 4GB swap file? [y/N]:` | `y` or `n` | Only if memory < 2GB |
+| **5** | `Wheel URL [default: ...]:`           | Press Enter or custom URL | Uses default if Enter   |
+| **6** | `Install torchvision? [y/N]:`         | `y` or `n`            | `n` (skip)            |
+| **7** | `Create 4GB swap file? [y/N]:`        | `y` or `n`            | Only if memory < 2GB    |
 
 **Example Session:**
 
@@ -185,10 +187,12 @@ Building torchvision from source (this may take 20-40 minutes)...
 ```
 
 #### Supported Configurations
+
 - **JetPack 5.1.1/5.1.2**: PyTorch wheels without cuSPARSELt requirement
 - **JetPack 6.0+**: Latest PyTorch wheels with automatic cuSPARSELt installation
 
 #### Testing PyTorch Installation
+
 After installation, verify PyTorch is working correctly:
 
 ```python
@@ -213,6 +217,7 @@ if torch.cuda.is_available():
 #### Troubleshooting
 
 **JetPack Detection Issues:**
+
 - If automatic detection fails, manually check your JetPack version:
   ```bash
   apt list --installed | grep nvidia-jetpack
@@ -221,10 +226,12 @@ if torch.cuda.is_available():
   ```
 
 **cuSPARSELt Issues:**
+
 - Ensure you're using the script on JP 6.0+ for automatic cuSPARSELt installation
 - Script automatically detects CUDA version (defaults to 12.6 for JetPack 6.x)
 
 **Memory Issues:**
+
 - Script checks available memory before building torchvision
 - If memory is low (< 2GB), script offers to create a 4GB swap file
 - Torchvision build uses MAX_JOBS=1 (single-threaded) to prevent OOM errors
@@ -238,10 +245,12 @@ if torch.cuda.is_available():
   ```
 
 **Wheel Compatibility:**
+
 - Verify your JetPack version matches the selected wheel
 - Script provides tested default wheels for each JetPack version
 
 **Torchvision Build Failures:**
+
 - If torchvision build fails with "Killed" error, it's likely an OOM issue
 - Script automatically uses MAX_JOBS=1, but you can manually set it:
   ```bash
@@ -257,6 +266,7 @@ if torch.cuda.is_available():
 Comprehensive test script to verify PyTorch and Torchvision installation.
 
 #### Features
+
 - **PyTorch Verification**: Checks PyTorch version, installation path, and CUDA availability
 - **CUDA Testing**: Verifies CUDA version, GPU detection, and GPU tensor operations
 - **Torchvision Check**: Tests Torchvision installation and basic functionality
@@ -264,6 +274,7 @@ Comprehensive test script to verify PyTorch and Torchvision installation.
 - **Error Reporting**: Clear error messages with troubleshooting suggestions
 
 #### Usage
+
 ```bash
 # Make script executable (if not already)
 chmod +x test_pytorch.sh
@@ -273,7 +284,9 @@ chmod +x test_pytorch.sh
 ```
 
 #### Test Output
+
 The script provides detailed information including:
+
 - PyTorch version and installation path
 - CUDA availability and version
 - GPU name, memory, and compute capability
@@ -281,6 +294,7 @@ The script provides detailed information including:
 - Torchvision version and functionality
 
 #### Example Output
+
 ```
 ==========================================
 PyTorch & Torchvision Installation Test
@@ -321,6 +335,7 @@ Test Summary
 Comprehensive OpenCV compilation script with CUDA, cuDNN, and GStreamer support.
 
 #### Features
+
 - **Full CUDA Integration**: Builds OpenCV with CUDA and cuDNN acceleration
 - **GStreamer Support**: Enables hardware-accelerated video processing
 - **Python Bindings**: Includes Python 3 bindings for cv2
@@ -328,6 +343,7 @@ Comprehensive OpenCV compilation script with CUDA, cuDNN, and GStreamer support.
 - **Optimized Build**: Configured for Jetson hardware optimization
 
 #### Usage
+
 ```bash
 # Start the build process (this will take 2-4 hours)
 ./build_opencv.sh
@@ -337,7 +353,9 @@ tail -f /tmp/opencv_build.log  # if logging is implemented
 ```
 
 #### Build Configuration
+
 The script configures OpenCV with:
+
 - CUDA acceleration for image processing
 - cuDNN support for deep learning inference
 - GStreamer integration for video I/O
@@ -345,6 +363,7 @@ The script configures OpenCV with:
 - Optimized compiler flags for ARM64
 
 #### Testing OpenCV Installation
+
 Verify your OpenCV installation after the build completes:
 
 ```python
@@ -375,6 +394,7 @@ if cv2.cuda.getCudaEnabledDeviceCount() > 0:
 ```
 
 #### Performance Testing
+
 Test OpenCV performance with CUDA acceleration:
 
 ```python
@@ -417,33 +437,33 @@ if cv2.cuda.getCudaEnabledDeviceCount() > 0:
 
 ### Hardware Requirements
 
-| Component | Minimum | Recommended | Notes |
-|-----------|---------|-------------|-------|
-| **Jetson Model** | Nano, Xavier NX | AGX Xavier, Orin | All models supported |
-| **RAM** | 4 GB | 8 GB+ | 8GB+ for OpenCV compilation |
-| **Storage** | 16 GB free | 32 GB+ free | Includes temporary build files |
-| **Swap Space** | Optional | 4 GB+ | Recommended for torchvision build |
+| Component              | Minimum         | Recommended      | Notes                             |
+| ---------------------- | --------------- | ---------------- | --------------------------------- |
+| **Jetson Model** | Nano, Xavier NX | AGX Xavier, Orin | All models supported              |
+| **RAM**          | 4 GB            | 8 GB+            | 8GB+ for OpenCV compilation       |
+| **Storage**      | 16 GB free      | 32 GB+ free      | Includes temporary build files    |
+| **Swap Space**   | Optional        | 4 GB+            | Recommended for torchvision build |
 
 ### Software Requirements
 
-| Software | Version | Installation Method |
-|----------|---------|-------------------|
-| **Ubuntu** | 18.04 / 20.04 / 22.04 | Pre-installed with JetPack |
-| **JetPack** | 5.1.1, 5.1.2, 6.0, 6.1, 6.2 | Pre-installed |
-| **CUDA** | 11.4+ / 12.0+ | Included with JetPack |
-| **Python** | 3.6+ | Pre-installed |
-| **pip** | Latest | `python3 -m pip install --upgrade pip` |
+| Software          | Version                     | Installation Method                      |
+| ----------------- | --------------------------- | ---------------------------------------- |
+| **Ubuntu**  | 18.04 / 20.04 / 22.04       | Pre-installed with JetPack               |
+| **JetPack** | 5.1.1, 5.1.2, 6.0, 6.1, 6.2 | Pre-installed                            |
+| **CUDA**    | 11.4+ / 12.0+               | Included with JetPack                    |
+| **Python**  | 3.6+                        | Pre-installed                            |
+| **pip**     | Latest                      | `python3 -m pip install --upgrade pip` |
 
 ### Pre-installation Setup Checklist
 
-| Task | Command | Purpose | Required |
-|------|---------|---------|----------|
-| **Update System** | `sudo apt update && sudo apt upgrade -y` | Get latest packages | ✅ Yes |
-| **Install Build Tools** | `sudo apt install -y build-essential cmake git wget curl` | Compilation dependencies | ✅ Yes |
-| **Verify CUDA** | `nvcc --version` | Confirm CUDA installation | ✅ Yes |
-| **Check JetPack** | `apt list --installed \| grep nvidia-jetpack` | Verify JetPack version | ⚠️ Recommended |
-| **Check Python** | `python3 --version` | Verify Python 3.6+ | ⚠️ Recommended |
-| **Check Disk Space** | `df -h` | Ensure sufficient space | ⚠️ Recommended |
+| Task                          | Command                                                     | Purpose                   | Required         |
+| ----------------------------- | ----------------------------------------------------------- | ------------------------- | ---------------- |
+| **Update System**       | `sudo apt update && sudo apt upgrade -y`                  | Get latest packages       | ✅ Yes           |
+| **Install Build Tools** | `sudo apt install -y build-essential cmake git wget curl` | Compilation dependencies  | ✅ Yes           |
+| **Verify CUDA**         | `nvcc --version`                                          | Confirm CUDA installation | ✅ Yes           |
+| **Check JetPack**       | `apt list --installed \| grep nvidia-jetpack`              | Verify JetPack version    | ⚠️ Recommended |
+| **Check Python**        | `python3 --version`                                       | Verify Python 3.6+        | ⚠️ Recommended |
+| **Check Disk Space**    | `df -h`                                                   | Ensure sufficient space   | ⚠️ Recommended |
 
 **Quick Setup Script:**
 
@@ -480,42 +500,42 @@ echo "=== Setup Complete ==="
 
 ### Installation Times
 
-| Component | Jetson Nano | Jetson Xavier NX | Jetson Orin | Notes |
-|-----------|-------------|-------------------|-------------|-------|
-| **PyTorch** | 8-12 min | 5-8 min | 5-10 min | Pre-built wheel |
-| **Torchvision** | 40-60 min | 25-35 min | 20-30 min | Source build (MAX_JOBS=1) |
-| **OpenCV** | 4-6 hours | 2-3 hours | 2-4 hours | Source compilation |
+| Component             | Jetson Nano | Jetson Xavier NX | Jetson Orin | Notes                     |
+| --------------------- | ----------- | ---------------- | ----------- | ------------------------- |
+| **PyTorch**     | 8-12 min    | 5-8 min          | 5-10 min    | Pre-built wheel           |
+| **Torchvision** | 40-60 min   | 25-35 min        | 20-30 min   | Source build (MAX_JOBS=1) |
+| **OpenCV**      | 4-6 hours   | 2-3 hours        | 2-4 hours   | Source compilation        |
 
 ### Resource Usage
 
-| Operation | CPU Usage | RAM Usage | Disk Usage | Network |
-|-----------|-----------|-----------|------------|---------|
-| **PyTorch Install** | Low | < 500 MB | ~800 MB | High (download) |
-| **Torchvision Build** | 100% (1 core) | 2-4 GB | ~2 GB | Low |
-| **OpenCV Build** | 100% (all cores) | 4-8 GB | ~5 GB | Medium |
+| Operation                   | CPU Usage        | RAM Usage | Disk Usage | Network         |
+| --------------------------- | ---------------- | --------- | ---------- | --------------- |
+| **PyTorch Install**   | Low              | < 500 MB  | ~800 MB    | High (download) |
+| **Torchvision Build** | 100% (1 core)    | 2-4 GB    | ~2 GB      | Low             |
+| **OpenCV Build**      | 100% (all cores) | 4-8 GB    | ~5 GB      | Medium          |
 
 ### Optimization Tips
 
-| Tip | Impact | Implementation |
-|-----|--------|----------------|
-| **Use Swap Space** | ⭐⭐⭐ High | Script offers automatic creation |
-| **Close Applications** | ⭐⭐ Medium | Free up RAM before building |
-| **MAX_JOBS=1** | ⭐⭐⭐ High | Already implemented for torchvision |
-| **SSD Storage** | ⭐⭐ Medium | Faster compilation times |
-| **Stable Internet** | ⭐⭐⭐ High | Required for downloads |
+| Tip                          | Impact      | Implementation                      |
+| ---------------------------- | ----------- | ----------------------------------- |
+| **Use Swap Space**     | ⭐⭐⭐ High | Script offers automatic creation    |
+| **Close Applications** | ⭐⭐ Medium | Free up RAM before building         |
+| **MAX_JOBS=1**         | ⭐⭐⭐ High | Already implemented for torchvision |
+| **SSD Storage**        | ⭐⭐ Medium | Faster compilation times            |
+| **Stable Internet**    | ⭐⭐⭐ High | Required for downloads              |
 
 ## 🔍 Verification & Testing
 
 ### Post-Installation Verification Checklist
 
-| Test | Command | Expected Result |
-|------|---------|-----------------|
-| **PyTorch Import** | `python3 -c "import torch"` | No errors |
-| **CUDA Available** | `python3 -c "import torch; print(torch.cuda.is_available())"` | `True` |
-| **CUDA Version** | `python3 -c "import torch; print(torch.version.cuda)"` | Version number (e.g., `12.6`) |
-| **GPU Name** | `python3 -c "import torch; print(torch.cuda.get_device_name(0))"` | GPU model name |
-| **Torchvision** | `python3 -c "import torchvision; print(torchvision.__version__)"` | Version number |
-| **GPU Tensor Ops** | See test script below | `SUCCESS` |
+| Test                     | Command                                                             | Expected Result                |
+| ------------------------ | ------------------------------------------------------------------- | ------------------------------ |
+| **PyTorch Import** | `python3 -c "import torch"`                                       | No errors                      |
+| **CUDA Available** | `python3 -c "import torch; print(torch.cuda.is_available())"`     | `True`                       |
+| **CUDA Version**   | `python3 -c "import torch; print(torch.version.cuda)"`            | Version number (e.g.,`12.6`) |
+| **GPU Name**       | `python3 -c "import torch; print(torch.cuda.get_device_name(0))"` | GPU model name                 |
+| **Torchvision**    | `python3 -c "import torchvision; print(torchvision.__version__)"` | Version number                 |
+| **GPU Tensor Ops** | See test script below                                               | `SUCCESS`                    |
 
 **Complete Test Script:**
 
@@ -529,13 +549,13 @@ def test_pytorch():
     try:
         import torch
         print(f"✅ PyTorch version: {torch.__version__}")
-        
+  
         if torch.cuda.is_available():
             print(f"✅ CUDA available: True")
             print(f"✅ CUDA version: {torch.version.cuda}")
             print(f"✅ GPU count: {torch.cuda.device_count()}")
             print(f"✅ GPU name: {torch.cuda.get_device_name(0)}")
-            
+    
             # Test GPU operations
             x = torch.randn(3, 3).cuda()
             y = torch.randn(3, 3).cuda()
@@ -567,7 +587,7 @@ if __name__ == "__main__":
     print()
     torchvision_ok = test_torchvision()
     print()
-    
+  
     if pytorch_ok:
         print("✅ PyTorch installation: SUCCESS")
     else:
@@ -579,13 +599,13 @@ if __name__ == "__main__":
 
 We welcome contributions! Please consider:
 
-| Contribution Type | Description | Priority |
-|-------------------|-------------|----------|
-| **Bug Reports** | Report issues and errors | High |
-| **Feature Requests** | Suggest new features | Medium |
-| **Code Contributions** | Submit pull requests | High |
-| **Documentation** | Improve documentation | Medium |
-| **Testing** | Test on different JetPack versions | High |
+| Contribution Type            | Description                        | Priority |
+| ---------------------------- | ---------------------------------- | -------- |
+| **Bug Reports**        | Report issues and errors           | High     |
+| **Feature Requests**   | Suggest new features               | Medium   |
+| **Code Contributions** | Submit pull requests               | High     |
+| **Documentation**      | Improve documentation              | Medium   |
+| **Testing**            | Test on different JetPack versions | High     |
 
 ### Contribution Guidelines
 
@@ -595,10 +615,6 @@ We welcome contributions! Please consider:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 🙏 Acknowledgments
 
 - NVIDIA for providing Jetson platform and documentation
@@ -607,39 +623,13 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## ⚠️ Important Notes
 
-| Note | Details |
-|------|---------|
-| **System Backup** | Always create a system backup before running installation scripts |
+| Note                            | Details                                                                                   |
+| ------------------------------- | ----------------------------------------------------------------------------------------- |
+| **System Backup**         | Always create a system backup before running installation scripts                         |
 | **JetPack Compatibility** | Script automatically detects version; ensure it's supported (5.1.1, 5.1.2, 6.0, 6.1, 6.2) |
-| **Internet Connection** | Stable connection required for downloading packages and wheels |
-| **Memory Requirements** | See Performance Benchmarks section for detailed requirements |
-| **Installation Time** | See Performance Benchmarks section for estimated times |
+| **Internet Connection**   | Stable connection required for downloading packages and wheels                            |
+| **Memory Requirements**   | See Performance Benchmarks section for detailed requirements                              |
+| **Installation Time**     | See Performance Benchmarks section for estimated times                                    |
 
-## 📞 Support & Contact
-
-### Author Information
-
-| Information | Details |
-|-------------|---------|
-| **Name** | Vahid Behtaji |
-| **Email** | [vahidbehtaji2013@gmail.com](mailto:vahidbehtaji2013@gmail.com) |
-| **Contact For** | Questions, issues, feature requests, contributions |
-
-### Getting Help
-
-| Issue Type | Action | Response Time |
-|------------|--------|---------------|
-| **Installation Problems** | Check Troubleshooting section first | - |
-| **Bug Reports** | Email with error logs | 1-3 days |
-| **Feature Requests** | Email with detailed description | 3-7 days |
-| **General Questions** | Email with specific question | 1-2 days |
-
----
-
-<div align="center">
-
-**Made with ❤️ for the Jetson Community**
-
-⭐ Star this repository if you find it helpful!
 
 </div>
