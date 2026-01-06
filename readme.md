@@ -40,6 +40,7 @@
 | ---------------------- | --------------------------------------- | --------------------------- | ------------------------------- | -------------- | --------------- |
 | `install_pytorch.sh`   | PyTorch with CUDA support + Torchvision | 5.1.1, 5.1.2, 6.0, 6.1, 6.2 | Pre-built wheels + Source build | 25-50 min      | 2-4 GB RAM      |
 | `build_opencv.sh`      | OpenCV with CUDA/cuDNN/GStreamer        | All versions                | Source compilation              | 2-4 hours      | 4-8 GB RAM      |
+| `test_pytorch.sh`      | Verify PyTorch & Torchvision installation | All versions                | Test script (no installation)   | < 1 min        | Minimal         |
 
 ### Script Comparison
 
@@ -59,12 +60,12 @@
 | Step | Action | Command | Expected Time | Notes |
 |------|--------|---------|---------------|-------|
 | **1** | **Navigate to Package Directory** | `cd /path/to/jetson-pytorch-opencv-installer` | - | Ensure you're in the correct directory |
-| **2** | **Make Scripts Executable** | `chmod +x *.sh` | < 1 min | Required for script execution |
+| **2** | **Make Scripts Executable** | `chmod +x *.sh` | < 1 min | Required for script execution (includes test_pytorch.sh) |
 | **3** | **Verify System Requirements** | `apt list --installed \| grep nvidia-jetpack` | < 1 min | Check JetPack version |
 | **4** | **Run PyTorch Installer** | `./install_pytorch.sh` | 5-10 min | Interactive installation |
 | **5** | **Follow Interactive Prompts** | See prompts below | - | Enter JetPack code, confirm wheel URL |
 | **6** | **Install Torchvision (Optional)** | Answer `y` when prompted | 20-40 min | Required for ultralytics |
-| **7** | **Verify Installation** | `python3 -c "import torch; print(torch.cuda.is_available())"` | < 1 min | Should return `True` |
+| **7** | **Verify Installation** | `./test_pytorch.sh` | < 1 min | Comprehensive test script |
 | **8** | **Build OpenCV (Optional)** | `./build_opencv.sh` | 2-4 hours | Only if needed for your project |
 
 ### Detailed Installation Steps
@@ -115,6 +116,9 @@ if torch.cuda.is_available():
 
 # Test Torchvision (if installed)
 python3 -c "import torchvision; print(f'TorchVision: {torchvision.__version__}')"
+
+# Or use the test script (recommended)
+./test_pytorch.sh
 ```
 
 ---
@@ -245,6 +249,70 @@ if torch.cuda.is_available():
   python3 setup.py install
   ```
 - Ensure swap space is available if system RAM is limited
+
+---
+
+### PyTorch Test Script (`test_pytorch.sh`)
+
+Comprehensive test script to verify PyTorch and Torchvision installation.
+
+#### Features
+- **PyTorch Verification**: Checks PyTorch version, installation path, and CUDA availability
+- **CUDA Testing**: Verifies CUDA version, GPU detection, and GPU tensor operations
+- **Torchvision Check**: Tests Torchvision installation and basic functionality
+- **Detailed Output**: Provides comprehensive information about GPU properties
+- **Error Reporting**: Clear error messages with troubleshooting suggestions
+
+#### Usage
+```bash
+# Make script executable (if not already)
+chmod +x test_pytorch.sh
+
+# Run the test
+./test_pytorch.sh
+```
+
+#### Test Output
+The script provides detailed information including:
+- PyTorch version and installation path
+- CUDA availability and version
+- GPU name, memory, and compute capability
+- GPU tensor operation test
+- Torchvision version and functionality
+
+#### Example Output
+```
+==========================================
+PyTorch & Torchvision Installation Test
+==========================================
+
+Testing PyTorch installation...
+-----------------------------------
+✅ PyTorch version: 2.5.0a0+872d972e41.nv24.8
+✅ PyTorch path: /home/jetson/web_gui/venv/lib/python3.10/site-packages/torch/__init__.py
+✅ CUDA available: True
+✅ CUDA version: 12.6
+✅ CUDA cuDNN version: 8902
+✅ GPU count: 1
+✅ GPU name: Orin (nvgpu)
+✅ GPU memory: 15.75 GB
+✅ GPU compute capability: 8.7
+✅ GPU tensor operations: SUCCESS
+
+Testing Torchvision installation...
+-----------------------------------
+✅ TorchVision version: 0.20.0a0
+✅ TorchVision path: /home/jetson/web_gui/venv/lib/python3.10/site-packages/torchvision/__init__.py
+✅ TorchVision transforms: SUCCESS
+
+==========================================
+Test Summary
+==========================================
+✅ PyTorch: INSTALLED AND WORKING
+✅ TorchVision: INSTALLED AND WORKING
+
+🎉 PyTorch installation test completed successfully!
+```
 
 ---
 
